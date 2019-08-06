@@ -18,7 +18,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "fei-components": [
+        "dist/fei-components"
+      ],
+      "fei-components/*": [
+        "dist/fei-components/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

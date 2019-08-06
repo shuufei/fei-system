@@ -23,14 +23,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+            "scripts": [],
+            "styles": []
           },
           "configurations": {
             "production": {
@@ -116,6 +110,47 @@
             "production": {
               "devServerTarget": "fei-system:serve:production"
             }
+          }
+        }
+      }
+    },
+    "fei-components": {
+      "projectType": "library",
+      "root": "projects/fei-components",
+      "sourceRoot": "projects/fei-components/src",
+      "prefix": "fei",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "changeDetection": "OnPush"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/fei-components/tsconfig.lib.json",
+            "project": "projects/fei-components/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fei-components/src/test.ts",
+            "tsConfig": "projects/fei-components/tsconfig.spec.json",
+            "karmaConfig": "projects/fei-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fei-components/tsconfig.lib.json",
+              "projects/fei-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
