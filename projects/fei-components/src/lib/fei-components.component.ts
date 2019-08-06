@@ -7,8 +7,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
       fei-components works!
     </p>
   `,
-  styleUrls: ['../scss/00-styles.scss'],
-  encapsulation: ViewEncapsulation.None
+  styles: ['']
 })
 export class FeiComponentsComponent implements OnInit {
 

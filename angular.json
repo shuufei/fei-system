@@ -24,7 +24,11 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "scripts": [],
-            "styles": []
+            "assets": [],
+            "styles": [
+              "projects/fei-components/src/scss/00-styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css"
+            ]
           },
           "configurations": {
             "production": {

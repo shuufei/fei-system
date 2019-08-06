@@ -33,7 +33,6 @@ storiesOf(`${category}/Button`, module)
   .addDecorator(moduleMetadata(metadata))
   .add('default', () => ({
     template: `
-    <fei-components></fei-components>
     <fei-button></fei-button>`
   }));
 
@@ -41,7 +40,6 @@ storiesOf(`${category}/Label`, module)
   .addDecorator(moduleMetadata(metadata))
   .add('default', () => ({
     template: `
-    <fei-components></fei-components>
     <fei-label></fei-label>
     `
   }));
