@@ -25,6 +25,9 @@
       ],
       "fei-components/*": [
         "dist/fei-components/*"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
       ]
     }
   },
