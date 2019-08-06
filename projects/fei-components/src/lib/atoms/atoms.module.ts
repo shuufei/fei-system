@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './button/button.component';
 import { LabelComponent } from './label/label.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { IconComponent } from './icon/icon.component';
 
 
 @NgModule({
   declarations: [
     ButtonComponent,
     LabelComponent,
-    TooltipComponent
+    TooltipComponent,
+    IconComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
   exports: [
     ButtonComponent,
     LabelComponent,
-    TooltipComponent
+    TooltipComponent,
+    IconComponent
   ]
 })
 export class AtomsModule { }
