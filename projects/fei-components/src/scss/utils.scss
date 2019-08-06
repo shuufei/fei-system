@@ -1,0 +1,49 @@
+$base-spacing: 4; // px
+$spacing-rate-min: 1;
+$spacing-rate-max: 20;
+
+@for $i from $spacing-rate-min through $spacing-rate-max {
+  .fei-mt-#{$i} {
+    margin-top: #{$i * $base-spacing}px;
+  }
+  .fei-mr-#{$i} {
+    margin-right: #{$i * $base-spacing}px;
+  }
+  .fei-mb-#{$i} {
+    margin-bottom: #{$i * $base-spacing}px;
+  }
+  .fei-ml-#{$i} {
+    margin-left: #{$i * $base-spacing}px;
+  }
+  .fei-mx-#{$i} {
+    margin-left: #{$i * $base-spacing}px;
+    margin-right: #{$i * $base-spacing}px;
+  }
+  .fei-my-#{$i} {
+    margin-top: #{$i * $base-spacing}px;
+    margin-bottom: #{$i * $base-spacing}px;
+  }
+}
+
+@for $i from $spacing-rate-min through $spacing-rate-max {
+  .fei-pt-#{$i} {
+    padding-top: #{$i * $base-spacing}px;
+  }
+  .fei-pr-#{$i} {
+    padding-right: #{$i * $base-spacing}px;
+  }
+  .fei-pb-#{$i} {
+    padding-bottom: #{$i * $base-spacing}px;
+  }
+  .fei-pl-#{$i} {
+    padding-left: #{$i * $base-spacing}px;
+  }
+  .fei-px-#{$i} {
+    padding-left: #{$i * $base-spacing}px;
+    padding-right: #{$i * $base-spacing}px;
+  }
+  .fei-py-#{$i} {
+    padding-top: #{$i * $base-spacing}px;
+    padding-bottom: #{$i * $base-spacing}px;
+  }
+}

@@ -1,0 +1,96 @@
+// @import './scss/reset-style.scss';
+// @import './scss/utils.scss';
+// @import './scss/variables.scss';
+@import './reset-style.scss';
+@import './utils.scss';
+@import './variables.scss';
+
+// colors
+@mixin define-color($data:()) {
+  @each $key, $val in $data {
+    .fei-color-#{$key} {
+      color: $val;
+    }
+    .fei-bg-color-#{$key} {
+      background-color: $val;
+    }
+  }
+}
+@include define-color($data: $colors);
+
+// typography
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap');
+@mixin define-typography($data:()) {
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: map-get($map: $typography, $key: 'base');
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+    color: map-get($map: $colors, $key: 'black500');
+  }
+  @each $key, $val in $data {
+    .fei-#{$key} {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: $val;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+      &.num {
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+      }
+      &.bold {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 500;
+        &.num {
+          font-family: 'Lato', sans-serif;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+@include define-typography($data: $typography);
+
+// border
+@mixin define-border($data:()) {
+  @each $key, $val in $data {
+    .fei-border-#{$key} {
+      border: solid 1px $val;
+    }
+  }
+}
+@include define-border($data: $colors);
+
+// border radius
+@mixin define-round($data:()) {
+  @each $key, $val in $data {
+    .fei-round-#{$key} {
+      border-radius: $val;
+    }
+  }
+}
+@include define-round($data: $round);
+
+// shadow
+@mixin define-shadow($data:()) {
+  @each $key, $val in $data {
+    .fei-shadow-#{$key} {
+      -webkit-box-shadow: $val;
+      box-shadow: $val;
+    }
+  }
+}
+@include define-shadow($data: $shadow);
+
+// default element style
+hr {
+  border-color: map-get($map: $colors, $key: "black250");
+  border-width: 0.5px;
+  border-style: solid;
+}
+input:focus, textarea:focus {
+  border: solid 1px map-get($map: $colors, $key: 'black500');
+}
