@@ -2,14 +2,14 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean, number } from '@storybook/addon-knobs';
 
-import { AtomsModule } from '../projects/fei-components/src/lib/atoms/atoms.module';
+import { FeiComponentsModule } from '../projects/fei-components/src/lib/fei-components.module';
 import { ButtonSize, ButtonRole } from '../projects/fei-components/src/lib/atoms/button/button.component';
 import { IconNames } from 'projects/fei-components/src/lib/atoms/icon/icon.component';
 
 const metadata = {
   declarations: [],
   imports: [
-    AtomsModule
+    FeiComponentsModule
   ]
 };
 

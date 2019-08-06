@@ -1,13 +1,29 @@
 import { NgModule } from '@angular/core';
-import { FeiComponentsComponent } from './fei-components.component';
+import { CommonModule } from '@angular/common';
 
-import { AtomsModule } from './atoms/atoms.module';
+import { FeiComponentsComponent } from './fei-components.component';
+import { ButtonComponent } from './atoms/button/button.component';
+import { LabelComponent } from './atoms/label/label.component';
+import { TooltipComponent } from './atoms/tooltip/tooltip.component';
+import { IconComponent } from './atoms/icon/icon.component';
 
 @NgModule({
-  declarations: [FeiComponentsComponent],
-  imports: [
-    AtomsModule
+  declarations: [
+    FeiComponentsComponent,
+    ButtonComponent,
+    LabelComponent,
+    TooltipComponent,
+    IconComponent
   ],
-  exports: [FeiComponentsComponent, AtomsModule]
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    FeiComponentsComponent,
+    ButtonComponent,
+    LabelComponent,
+    TooltipComponent,
+    IconComponent
+  ]
 })
 export class FeiComponentsModule { }

@@ -1,6 +1,6 @@
 {
   "name": "fei-system",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,9 +8,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "sb": "start-storybook"
+    "sb": "start-storybook",
+    "prepublish": "ng build fei-components"
   },
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "main": "dist/fei-components/bundles/fei-components.umd.js",
   "dependencies": {
     "@angular/animations": "~8.1.3",
     "@angular/common": "~8.1.3",
