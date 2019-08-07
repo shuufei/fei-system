@@ -1,27 +1,119 @@
-# FeiSystem
+# fei system
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3.
+## [fei components] Get Start
 
-## Development server
+### Download
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+npm installを実施。
+```sh
+npm install fei-system
+npm install bootstrap
+```
 
-## Code scaffolding
+### Module Import
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+app.module(適宜変更)でFeiComponentsModuleをImport。
 
-## Build
+```ts:app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { AppComponent } from './app.component';
+import { FeiComponentsModule } from 'fei-system'; // 追記
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    FeiComponentsModule // 追記
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class AppModule { }
+```
 
-## Running unit tests
+### GlobalStyleの取り込み
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+angular.jsonのassetsとstylesにfei componentsで利用するassetsとglobal styleを取り込む
 
-## Running end-to-end tests
+```json:angular.json
+  "assets": [
+      "...",
+      { "glob": "**/*", "input": "node_modules/fei-system/projects/fei-components/src/assets/", "output": "/assets/"}
+  ],
+  "styles": [
+    "...",
+    "node_modules/fei-system/projects/fei-components/srcscss/00-styles.scss",
+    "node_modules/bootstrap/dist/cssbootstrap-grid.min.css"
+  ],
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### @angularパスを明示的に指定
 
-## Further help
+tsconfig.jsonのpathsに下記を追記し、利用されるangularを明示的に指定する。
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```json:tsconfig.json
+"paths": {
+  "@angular/*": ["node_modules/@angular/*"]
+}
+```
+
+### ImportしたNgModuleの管理下でfei componentsを利用
+
+ここまで実施すると、fei componentsが利用できるようになる。
+
+```html
+<fei-button></fei-button>
+```
+
+## [fei components] Storybookの取り込み
+
+### Storybook Setup
+
+[Storyboo for Angular](https://storybook.js.org/docs/guides/guide-angular/)を参考に、Storybookのsetupを行う。
+
+### Download
+
+npm installを実施。
+
+```sh
+npm install @storybook/addon-actions
+npm install @storybook/addon-knobs
+npm install @storybook/addon-links
+```
+
+### addons.jsの作成
+
+.storybook/addons.jsを作成する
+
+```js:addons.js
+import '@storybook/addon-actions/register';
+import '@storybook/addon-knobs/register';
+import '@storybook/addon-links/register';
+```
+
+### config.jsの変更
+
+config.jsを編集し、fei componentsのstoryファイルを取り込み対象にする。
+
+```js:config.js
+import { configure } from '@storybook/angular';
+
+function loadStories() {
+  const req = require.context('../stories', true, /\.stories\.ts$/);
+  req.keys().forEach(filename => req2(filename));
+
+  const feiReq = require.context('../node_modules/fei-system/stories', true, /\.stories\.ts$/); // 追記
+  feiReq.keys().forEach(filename => feiReq(filename)); // 追記
+}
+configure(loadStories, module);
+```
+
+### storybookを立ち上げ確認
+
+下記コマンドでstorybookを立ち上げて確認
+
+```sh
+npm run stroybook
+```
