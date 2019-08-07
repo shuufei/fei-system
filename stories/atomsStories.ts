@@ -15,10 +15,7 @@ const defaultMetadata = {
 };
 
 export class AtomsStories {
-
-  // tslint:disable-next-line: variable-name
-  private _category = 'Atoms';
-  get category() { return this._category; }
+  static category = 'Atoms';
 
   constructor() {}
 
@@ -33,7 +30,7 @@ export class AtomsStories {
       cancel: 'cancel',
       danger: 'danger'
     };
-    storiesOf(`${this.category}/Button`, module)
+    storiesOf(`${AtomsStories.category}/Button`, module)
       .addDecorator(moduleMetadata(metadata))
       .addDecorator(withKnobs)
       .add('default', () => ({
@@ -64,7 +61,7 @@ export class AtomsStories {
         }
       }));
 
-    storiesOf(`${this.category}/Label`, module)
+    storiesOf(`${AtomsStories.category}/Label`, module)
       .addDecorator(moduleMetadata(metadata))
       .addDecorator(withKnobs)
       .add('default', () => ({
@@ -84,7 +81,7 @@ export class AtomsStories {
       users: 'users',
       arrow: 'arrow'
     };
-    storiesOf(`${this.category}/Icon`, module)
+    storiesOf(`${AtomsStories.category}/Icon`, module)
       .addDecorator(moduleMetadata(metadata))
       .addDecorator(withKnobs)
       .add('default', () => ({
@@ -100,7 +97,7 @@ export class AtomsStories {
         }
       }));
 
-    storiesOf(`${this.category}/Loading`, module)
+    storiesOf(`${AtomsStories.category}/Loading`, module)
       .addDecorator(moduleMetadata(metadata))
       .addDecorator(withKnobs)
       .add('default', () => ({
