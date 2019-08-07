@@ -99,5 +99,16 @@ export class AtomsStories {
           white: boolean('white', false)
         }
       }));
+
+    storiesOf(`${this.category}/Loading`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <div style='margin-bottom:12px;'><fei-loading size='s'></fei-loading></div>
+          <div style='margin-bottom:12px;'><fei-loading size='m'></fei-loading></div>
+          <div style='margin-bottom:12px;'><fei-loading size='l'></fei-loading></div>
+        `
+      }));
   }
 }

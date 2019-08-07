@@ -1,0 +1,60 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+$loader-size-s: 20px;
+$loader-width-s: 2.5px;
+$loader-size-m: 40px;
+$loader-width-m: 4px;
+$loader-size-l: 65px;
+$loader-width-l: 6px;
+
+.loader {
+  border-radius: 50%;
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+  &.s {
+    width: $loader-size-s;
+    height: $loader-size-s;
+    border: $loader-width-s solid map-get($map: $colors, $key: 'black200');
+    border-left: $loader-width-s solid map-get($map: $colors, $key: 'black500');
+  }
+  &.m {
+    width: $loader-size-m;
+    height: $loader-size-m;
+    border: $loader-width-m solid map-get($map: $colors, $key: 'black200');
+    border-left: $loader-width-m solid map-get($map: $colors, $key: 'black500');
+  }
+  &.l {
+    width: $loader-size-l;
+    height: $loader-size-l;
+    border: $loader-width-l solid map-get($map: $colors, $key: 'black200');
+    border-left: $loader-width-l solid map-get($map: $colors, $key: 'black500');
+  }
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  80% {
+    -webkit-transform: rotate(250deg);
+            transform: rotate(250deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  80% {
+    -webkit-transform: rotate(250deg);
+            transform: rotate(250deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

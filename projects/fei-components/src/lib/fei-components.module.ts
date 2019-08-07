@@ -6,6 +6,7 @@ import { ButtonComponent } from './atoms/button/button.component';
 import { LabelComponent } from './atoms/label/label.component';
 import { TooltipComponent } from './atoms/tooltip/tooltip.component';
 import { IconComponent } from './atoms/icon/icon.component';
+import { LoadingComponent } from './atoms/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { IconComponent } from './atoms/icon/icon.component';
     ButtonComponent,
     LabelComponent,
     TooltipComponent,
-    IconComponent
+    IconComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule
@@ -23,7 +25,8 @@ import { IconComponent } from './atoms/icon/icon.component';
     ButtonComponent,
     LabelComponent,
     TooltipComponent,
-    IconComponent
+    IconComponent,
+    LoadingComponent
   ]
 })
 export class FeiComponentsModule { }
