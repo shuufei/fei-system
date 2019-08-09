@@ -78,9 +78,9 @@ tsconfig.jsonのpathsに下記を追記し、利用されるangularを明示的�
 npm installを実施。
 
 ```sh
-npm install @storybook/addon-actions
-npm install @storybook/addon-knobs
-npm install @storybook/addon-links
+npm install @storybook/addon-actions --save-dev
+npm install @storybook/addon-knobs --save-dev
+npm install @storybook/addon-links --save-dev
 ```
 
 ### addons.jsの作成
