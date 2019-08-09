@@ -44,8 +44,8 @@ angular.jsonのassetsとstylesにfei componentsで利用するassetsとglobal st
   ],
   "styles": [
     "...",
-    "node_modules/fei-system/projects/fei-components/srcscss/00-styles.scss",
-    "node_modules/bootstrap/dist/cssbootstrap-grid.min.css"
+    "node_modules/fei-system/projects/fei-components/src/scss/00-styles.scss",
+    "node_modules/bootstrap/dist/css/bootstrap-grid.min.css"
   ],
 ```
 
