@@ -1,0 +1,50 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+$checkmark-size: 16px;
+
+.checkbox {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: $checkmark-size;
+  width: $checkmark-size;
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: map-get($map: $colors, $key: 'black50');
+  &:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+}
+
+.checkbox input:checked ~ .checkmark {
+  background-color: map-get($map: $colors, $key: 'black500');
+  &:after {
+    display: block;
+    left: 5px;
+    top: 0.5px;
+    width: 5px;
+    height: 10px;
+    border: solid map-get($map: $colors, $key: 'white');
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+}

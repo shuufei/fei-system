@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'fei-tooltip',
@@ -7,10 +7,17 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TooltipComponent implements OnInit {
+  @Input() label: string;
+  @Input() position: TooltipPosition;
 
-  constructor() { }
+  constructor() {
+    this.label = 'tooltip';
+    this.position = 'top';
+  }
 
   ngOnInit() {
   }
 
 }
+
+export type TooltipPosition = 'left' | 'top' | 'right' | 'bottom';

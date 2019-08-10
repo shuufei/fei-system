@@ -1,0 +1,47 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+.tooltip {
+  background-color: map-get($map: $colors, $key: 'black500');
+  position: relative;
+  white-space: nowrap;
+  &:after {
+    border-style: solid;
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    width: 0;
+  }
+  &.top::after {
+    border-color: map-get($map: $colors, $key: 'black500') transparent transparent transparent;
+    border-width: 3px 3px 0 3px;
+    left: 50%;
+    top: 100%;
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+  &.bottom::after {
+    border-color: transparent transparent map-get($map: $colors, $key: 'black500') transparent;
+    border-width: 0 3px 3px 3px;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+  }
+  &.right::after {
+    border-color: transparent map-get($map: $colors, $key: 'black500') transparent transparent;
+    border-width: 3px 3px 3px 0;
+    left: 0%;
+    top: 50%;
+    -webkit-transform: translate(-100%, -50%);
+            transform: translate(-100%, -50%);
+  }
+  &.left::after {
+    border-color: transparent transparent transparent map-get($map: $colors, $key: 'black500');
+    border-width: 3px 0 3px 3px;
+    left: 100%;
+    top: 50%;
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+  }
+}
