@@ -1,0 +1,43 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+.tooltip-wrapper {
+  position: relative;
+  &:hover > fei-tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+fei-tooltip {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.tooltip-wrapper.top > fei-tooltip {
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -140%);
+          transform: translate(-50%, -140%);
+}
+
+.tooltip-wrapper.right > fei-tooltip {
+  top: 50%;
+  left: 140%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.tooltip-wrapper.bottom > fei-tooltip {
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 40%);
+          transform: translate(-50%, 40%);
+}
+
+.tooltip-wrapper.left > fei-tooltip {
+  top: 50%;
+  left: -40%;
+  -webkit-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
+}

@@ -12,6 +12,8 @@ import { InputTextComponent } from './atoms/input-text/input-text.component';
 import { TextareaComponent } from './atoms/textarea/textarea.component';
 import { CheckboxComponent } from './atoms/checkbox/checkbox.component';
 import { SelectComponent } from './atoms/select/select.component';
+import { CheckboxWrapperComponent } from './molecules/checkbox-wrapper/checkbox-wrapper.component';
+import { TooltipWrapperComponent } from './molecules/tooltip-wrapper/tooltip-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SelectComponent } from './atoms/select/select.component';
     InputTextComponent,
     TextareaComponent,
     CheckboxComponent,
-    SelectComponent
+    SelectComponent,
+    CheckboxWrapperComponent,
+    TooltipWrapperComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +44,9 @@ import { SelectComponent } from './atoms/select/select.component';
     InputTextComponent,
     TextareaComponent,
     CheckboxComponent,
-    SelectComponent
+    SelectComponent,
+    CheckboxWrapperComponent,
+    TooltipWrapperComponent
   ]
 })
 export class FeiComponentsModule { }
