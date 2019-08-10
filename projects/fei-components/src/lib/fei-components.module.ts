@@ -14,6 +14,7 @@ import { CheckboxComponent } from './atoms/checkbox/checkbox.component';
 import { SelectComponent } from './atoms/select/select.component';
 import { CheckboxWrapperComponent } from './molecules/checkbox-wrapper/checkbox-wrapper.component';
 import { TooltipWrapperComponent } from './molecules/tooltip-wrapper/tooltip-wrapper.component';
+import { StyleExampleModule } from './style-example/style-example.module';
 
 @NgModule({
   declarations: [
@@ -32,9 +33,11 @@ import { TooltipWrapperComponent } from './molecules/tooltip-wrapper/tooltip-wra
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StyleExampleModule
   ],
   exports: [
+    StyleExampleModule,
     FeiComponentsComponent,
     ButtonComponent,
     LabelComponent,

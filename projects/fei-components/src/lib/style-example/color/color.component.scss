@@ -1,0 +1,7 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+.box {
+  height: 50px;
+  width: 50px;
+  border: solid 0.5px map-get($map: $colors, $key: 'black200');
+}
