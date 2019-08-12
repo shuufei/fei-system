@@ -16,6 +16,7 @@ import { CheckboxWrapperComponent } from './molecules/checkbox-wrapper/checkbox-
 import { TooltipWrapperComponent } from './molecules/tooltip-wrapper/tooltip-wrapper.component';
 import { StyleExampleModule } from './style-example/style-example.module';
 import { PullButtonComponent } from './molecules/pull-button/pull-button.component';
+import { ThumbnailComponent } from './atoms/thumbnail/thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PullButtonComponent } from './molecules/pull-button/pull-button.compone
     SelectComponent,
     CheckboxWrapperComponent,
     TooltipWrapperComponent,
-    PullButtonComponent
+    PullButtonComponent,
+    ThumbnailComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ import { PullButtonComponent } from './molecules/pull-button/pull-button.compone
     SelectComponent,
     CheckboxWrapperComponent,
     TooltipWrapperComponent,
-    PullButtonComponent
+    PullButtonComponent,
+    ThumbnailComponent,
   ]
 })
 export class FeiComponentsModule { }

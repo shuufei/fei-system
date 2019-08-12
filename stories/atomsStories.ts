@@ -185,5 +185,17 @@ export class AtomsStories {
           shadow: boolean('shadow', false),
         }
     }));
+
+    storiesOf(`${AtomsStories.category}/Thumbnail`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <fei-thumbnail [size]="size"></fei-thumbnail>
+        `,
+        props: {
+          size: number('size', 50)
+        }
+    }));
   }
 }
