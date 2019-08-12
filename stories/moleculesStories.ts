@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { FeiComponentsModule } from '../dist/fei-components';
 import { StorybookMetadata } from './util';
 import { TooltipPosition } from '../projects/fei-components/src/lib/atoms/tooltip/tooltip.component';
+import { PullButtonDirection } from '../projects/fei-components/src/lib/molecules/pull-button/pull-button.component';
 
 const defaultMetadata = {
   declarations: [],
@@ -53,6 +54,22 @@ export class MoleculesStories {
         props: {
           label: text('label', 'tooltip'),
           position: select('position', tooltipPosition, 'top')
+        }
+    }));
+
+    const pullButtonDirection: { [k in PullButtonDirection]: PullButtonDirection } = {
+      right: 'right',
+      left: 'left'
+    };
+    storiesOf(`${MoleculesStories.category}/Pull Button`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <fei-pull-button [direction]="direction"></fei-pull-button>
+        `,
+        props: {
+          direction: select('direction', pullButtonDirection, 'left')
         }
     }));
   }

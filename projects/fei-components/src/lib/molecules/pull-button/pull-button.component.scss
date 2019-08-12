@@ -1,0 +1,30 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+.pull-button {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  -webkit-transition: 0.15s ease-out;
+  -webkit-transition: 0.15s ease-out box-shadow;
+  transition: 0.15s ease-out box-shadow;
+  &:hover {
+    -webkit-box-shadow: map-get($map: $shadow, $key: '3');
+    box-shadow: map-get($map: $shadow, $key: '3'); 
+  }
+  &:focus {
+    outline: none;
+  }
+  &.left {
+    -webkit-transform: scale(-1, 1);
+            transform: scale(-1, 1);
+  }
+  &.right {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+fei-icon {
+  line-height: 0;
+}

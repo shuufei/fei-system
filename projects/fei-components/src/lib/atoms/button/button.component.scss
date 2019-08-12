@@ -3,6 +3,7 @@
 .button {
   padding: 8px 16px;
   cursor: pointer;
+  -webkit-transition: 0.15s ease-out;
   transition: 0.15s ease-out;
   &.s {
     padding: 6px 12px;
@@ -18,7 +19,8 @@
   }
   &.default, &.danger {
     &:hover {
-      box-shadow: map-get($map: $shadow, $key: '3');
+      -webkit-box-shadow: map-get($map: $shadow, $key: '3');
+              box-shadow: map-get($map: $shadow, $key: '3');
     }
   }
   &.cancel {
@@ -29,8 +31,10 @@
   }
   &:disabled {
     background-color: map-get($map: $colors, $key: 'black250') !important;
-    box-shadow: none !important;
-    transform: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    -webkit-transform: none !important;
+            transform: none !important;
     cursor: initial !important;
   }
 }
