@@ -82,6 +82,11 @@
 }
 @include define-shadow($data: $shadow);
 
+// other
+.fei-clickable {
+  cursor: pointer;
+}
+
 // default element style
 hr {
   border-color: map-get($map: $colors, $key: "black250");

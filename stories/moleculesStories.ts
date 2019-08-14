@@ -72,5 +72,16 @@ export class MoleculesStories {
           direction: select('direction', pullButtonDirection, 'left')
         }
     }));
+
+    storiesOf(`${MoleculesStories.category}/Calendar`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <fei-calendar></fei-calendar>
+        `,
+        props: {
+        }
+    }));
   }
 }

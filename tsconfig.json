@@ -25,8 +25,10 @@
       ],
       "fei-components/*": [
         "dist/fei-components/*"
-      ]
-    }
+      ],
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

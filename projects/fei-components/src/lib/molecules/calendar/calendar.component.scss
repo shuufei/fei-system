@@ -1,0 +1,23 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+.left-arrow {
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.calendar-head {
+  width: 100%;
+}
+
+.calendar-cell {
+  padding: 2px;
+  .calendar-cell-data {
+    padding: 4px;
+    text-align: center;
+    border-radius: map-get($map: $round, $key: '1');
+    &.checked {
+      background: map-get($map: $colors, $key: 'black500');
+      color: map-get($map: $colors, $key: 'white');
+    }
+  }
+}
