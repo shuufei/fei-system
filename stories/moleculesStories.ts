@@ -85,5 +85,20 @@ export class MoleculesStories {
           onClickedDate: action('Clicked Date')
         }
     }));
+
+    storiesOf(`${MoleculesStories.category}/Calendar Button`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <div style="margin-bottom: 12px;">
+            <fei-calendar-button></fei-calendar-button>
+          </div>
+          <fei-calendar-button [date]="date"></fei-calendar-button>
+        `,
+        props: {
+          date: new Date()
+        }
+    }));
   }
 }

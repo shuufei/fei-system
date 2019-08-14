@@ -1,0 +1,10 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+.calendar-button {
+  -webkit-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+  &:hover {
+    -webkit-box-shadow: map-get($map: $shadow, $key: '3');
+            box-shadow: map-get($map: $shadow, $key: '3');
+  }
+}

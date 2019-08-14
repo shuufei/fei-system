@@ -1,0 +1,9 @@
+<button
+  class="calendar-button fei-round-2 fei-shadow-1 fei-bg-color-white fei-px-1 fei-py-1 fei-border-black200 fei-clickable d-flex align-items-center justify-content-between"
+  [ngClass]="{'fei-px-2': date}"
+>
+  <span *ngIf="date" class="fei-base bold fei-color-black500 fei-mr-3">{{yyyym}}</span>
+  <span>
+    <fei-icon icon="calendar" [size]="24"></fei-icon>
+  </span>
+</button>

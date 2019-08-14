@@ -18,6 +18,7 @@ import { StyleExampleModule } from './style-example/style-example.module';
 import { PullButtonComponent } from './molecules/pull-button/pull-button.component';
 import { ThumbnailComponent } from './atoms/thumbnail/thumbnail.component';
 import { CalendarComponent } from './molecules/calendar/calendar.component';
+import { CalendarButtonComponent } from './molecules/calendar-button/calendar-button.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CalendarComponent } from './molecules/calendar/calendar.component';
     TooltipWrapperComponent,
     PullButtonComponent,
     ThumbnailComponent,
-    CalendarComponent
+    CalendarComponent,
+    CalendarButtonComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +60,8 @@ import { CalendarComponent } from './molecules/calendar/calendar.component';
     TooltipWrapperComponent,
     PullButtonComponent,
     ThumbnailComponent,
-    CalendarComponent
+    CalendarComponent,
+    CalendarButtonComponent
   ]
 })
 export class FeiComponentsModule { }

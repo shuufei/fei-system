@@ -19,8 +19,8 @@
   }
   &.default, &.danger {
     &:hover {
-      -webkit-box-shadow: map-get($map: $shadow, $key: '3');
-              box-shadow: map-get($map: $shadow, $key: '3');
+      -webkit-box-shadow: map-get($map: $shadow, $key: '4');
+              box-shadow: map-get($map: $shadow, $key: '4');
     }
   }
   &.cancel {
