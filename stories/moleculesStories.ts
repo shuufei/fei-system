@@ -78,9 +78,11 @@ export class MoleculesStories {
       .addDecorator(withKnobs)
       .add('default', () => ({
         template: `
-          <fei-calendar></fei-calendar>
+          <fei-calendar [checkedDateList]="checkedDateList" (clickedDate)="onClickedDate($event)"></fei-calendar>
         `,
         props: {
+          checkedDateList: [new Date()],
+          onClickedDate: action('Clicked Date')
         }
     }));
   }

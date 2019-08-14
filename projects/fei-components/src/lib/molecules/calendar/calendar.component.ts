@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, EventEmitter, Output, OnChanges, SimpleChanges } from '@angular/core';
 import moment from 'moment';
 
 const WEEK = [
@@ -12,39 +12,46 @@ const WEEK_COUNT = 6;
   styleUrls: ['./calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalendarComponent implements OnInit {
-  @Input() type: 'month' | 'year';
+export class CalendarComponent implements OnInit, OnChanges {
   @Input() initDate: Date;
   @Input() checkedDateList: Date[];
   @Input() multiDate: boolean;
-  @Output() clickedDate: EventEmitter<Date[]> = new EventEmitter();
+  @Output() clickedDate: EventEmitter<Date> = new EventEmitter();
 
+  baseDate: Date;
   calendarArray: Array<Array<{ date: number; checked: boolean } | null>> = [];
 
   constructor() {
-    this.type = 'month';
     this.initDate = new Date();
-    this.checkedDateList = [new Date(), new Date(2019, 7, 15), new Date(2019, 7, 8)];
+    this.checkedDateList = [];
     this.multiDate = false;
-    for (let index = 0; index < WEEK_COUNT; index++) {
-      this.calendarArray.push([]);
-    }
+    this.baseDate = new Date();
+    this.initCalendarArray();
   }
 
   ngOnInit() {
-    this.initCalendarArray();
     this.generateCalendar();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.initDate && changes.initDate.currentValue) {
+      this.baseDate = changes.initDate.currentValue;
+    }
+    if (changes.checkedDateList && changes.checkedDateList.currentValue) {
+    }
+  }
+
   generateCalendar() {
-    const year = this.initDate.getFullYear();
-    const month = this.initDate.getMonth();
+    this.initCalendarArray();
+    const year = this.baseDate.getFullYear();
+    const month = this.baseDate.getMonth();
     const first = new Date(year, month, 1);
     const last = new Date(year, month + 1, 0);
     let weekNum = 0;
     for (let i = first.getDate(); i <= last.getDate(); i++) {
       const date = new Date(year, month, i);
-      const checked = this.checkedDateList.find(d => d.getDate() === date.getDate()) != null ? true : false;
+      const checked = this.checkedDateList.find(d => moment(d).format('YYYYMMDD') === moment(date).format('YYYYMMDD')) != null ?
+        true : false;
       this.calendarArray[weekNum][date.getDay()] = { date: i, checked };
       if (i === last.getDate()) {
         this.calendarArray.splice(weekNum + 1, WEEK_COUNT - (weekNum + 1));
@@ -54,14 +61,32 @@ export class CalendarComponent implements OnInit {
   }
 
   get yyyymm() {
-    return moment(this.initDate).format('YYYY年M月');
+    return moment(this.baseDate).format('YYYY年M月');
   }
 
   get week() {
     return WEEK;
   }
 
+  nextMonth() {
+    this.baseDate = new Date(this.baseDate.getFullYear(), this.baseDate.getMonth() + 1, 1);
+    this.generateCalendar();
+  }
+
+  prevMonth() {
+    this.baseDate = new Date(this.baseDate.getFullYear(), this.baseDate.getMonth() - 1, 1);
+    this.generateCalendar();
+  }
+
+  onClickedDate(date: number) {
+    this.clickedDate.emit(new Date(this.baseDate.getFullYear(), this.baseDate.getMonth(), date));
+  }
+
   private initCalendarArray() {
+    this.calendarArray = [];
+    for (let index = 0; index < WEEK_COUNT; index++) {
+      this.calendarArray.push([]);
+    }
     this.calendarArray = this.calendarArray.map(() => WEEK.map(() => null));
   }
 

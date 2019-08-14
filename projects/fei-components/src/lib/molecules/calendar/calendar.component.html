@@ -1,10 +1,10 @@
 <div class="calendar fei-round-3 fei-shadow-1 fei-px-4 fei-pt-3 fei-pb-4 fei-bg-color-white fei-border-black200 d-inline-flex flex-column align-items-center">
   <div class="calendar-head d-flex justify-content-between align-items-center">
-    <span class="fei-px-1 fei-py-1 fei-clickable left-arrow">
+    <span class="fei-px-1 fei-py-1 fei-clickable left-arrow" (click)="prevMonth()">
       <fei-icon icon="arrow" [size]="10"></fei-icon>
     </span>
     <span>{{yyyymm}}</span>
-    <span class="fei-px-1 fei-py-1 fei-clickable">
+    <span class="fei-px-1 fei-py-1 fei-clickable" (click)="nextMonth()">
       <fei-icon icon="arrow" [size]="10"></fei-icon>
     </span>
   </div>
@@ -17,7 +17,7 @@
       </thead>
       <tbody class="fei-caption num">
         <tr *ngFor="let w of calendarArray">
-          <td *ngFor="let d of w" class="calendar-cell">
+          <td *ngFor="let d of w" class="calendar-cell" (click)="onClickedDate(d?.date)">
             <div class="calendar-cell-data" [ngClass]="{'checked': d?.checked, 'fei-clickable': d}">
               {{d?.date}}
             </div>
