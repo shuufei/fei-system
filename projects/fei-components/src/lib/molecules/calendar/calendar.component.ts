@@ -15,7 +15,6 @@ const WEEK_COUNT = 6;
 export class CalendarComponent implements OnInit, OnChanges {
   @Input() initDate: Date;
   @Input() checkedDateList: Date[];
-  @Input() multiDate: boolean;
   @Output() clickedDate: EventEmitter<Date> = new EventEmitter();
 
   baseDate: Date;
@@ -24,7 +23,6 @@ export class CalendarComponent implements OnInit, OnChanges {
   constructor() {
     this.initDate = new Date();
     this.checkedDateList = [];
-    this.multiDate = false;
     this.baseDate = new Date();
     this.initCalendarArray();
   }
@@ -38,6 +36,7 @@ export class CalendarComponent implements OnInit, OnChanges {
       this.baseDate = changes.initDate.currentValue;
     }
     if (changes.checkedDateList && changes.checkedDateList.currentValue) {
+      this.changeCheckedDate(changes.checkedDateList.currentValue);
     }
   }
 
@@ -88,6 +87,26 @@ export class CalendarComponent implements OnInit, OnChanges {
       this.calendarArray.push([]);
     }
     this.calendarArray = this.calendarArray.map(() => WEEK.map(() => null));
+  }
+
+  private changeCheckedDate(dateList: Date[]) {
+    for (const [i] of this.calendarArray.entries()) {
+      for (const d of this.calendarArray[i]) {
+        let checked = false;
+        dateList.forEach((date: Date) => {
+          if (
+            d != null &&
+            moment(date).format('YYYYMMDD') ===
+              moment(new Date(this.baseDate.getFullYear(), this.baseDate.getMonth(), d.date)).format('YYYYMMDD')
+          ) {
+            checked = true;
+          }
+        });
+        if (d != null) {
+          d.checked = checked;
+        }
+      }
+    }
   }
 
 }
