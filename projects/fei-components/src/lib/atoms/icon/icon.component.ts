@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
-export type IconNames = 'calendar' | 'calendarEdit' | 'close' | 'logOut' | 'timeSpan' | 'users' | 'arrow';
+export type IconNames =
+  'calendar' | 'calendarEdit' | 'close' | 'logOut' | 'timeSpan' | 'users' |
+  'arrow' | 'arrowTop' | 'arrowBottom' | 'arrowLeft' | 'arrowRight';
 export const Icons: { [k in IconNames]: { path: string; white: string | null; } } = {
   calendar: {
     path: 'assets/icons/calendar.svg',
@@ -29,7 +31,23 @@ export const Icons: { [k in IconNames]: { path: string; white: string | null; } 
   arrow: {
     path: 'assets/icons/arrow.svg',
     white: 'assets/icons/arrow-white.svg'
-  }
+  },
+  arrowTop: {
+    path: 'assets/icons/arrow-top.svg',
+    white: 'assets/icons/arrow-top-white.svg'
+  },
+  arrowBottom: {
+    path: 'assets/icons/arrow-bottom.svg',
+    white: 'assets/icons/arrow-bottom-white.svg'
+  },
+  arrowLeft: {
+    path: 'assets/icons/arrow-left.svg',
+    white: 'assets/icons/arrow-left-white.svg'
+  },
+  arrowRight: {
+    path: 'assets/icons/arrow-right.svg',
+    white: 'assets/icons/arrow-right-white.svg'
+  },
 };
 
 

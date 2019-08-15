@@ -82,7 +82,11 @@ export class AtomsStories {
       logOut: 'logOut',
       timeSpan: 'timeSpan',
       users: 'users',
-      arrow: 'arrow'
+      arrow: 'arrow',
+      arrowTop: 'arrowTop',
+      arrowBottom: 'arrowBottom',
+      arrowRight: 'arrowRight',
+      arrowLeft: 'arrowLeft'
     };
     storiesOf(`${AtomsStories.category}/Icon`, module)
       .addDecorator(moduleMetadata(metadata))
