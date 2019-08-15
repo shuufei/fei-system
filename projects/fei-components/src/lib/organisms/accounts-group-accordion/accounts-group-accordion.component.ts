@@ -1,6 +1,6 @@
 import {
   Component, OnInit, ChangeDetectionStrategy, Input, OnChanges,
-  SimpleChanges, OnDestroy, ViewChild, ElementRef, AfterViewInit
+  SimpleChanges, OnDestroy, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class AccountsGroupAccordionComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
   @Input() groupName: string;
   @Input() accounts: AccountsGroupAccordionAccount[];
+  @Output() changeGroupCheck: EventEmitter<boolean> = new EventEmitter();
   @ViewChild('accordion', { static: false }) accordionElement: ElementRef | undefined;
   @ViewChild('accordionHead', { static: false }) accordionHeadElement: ElementRef | undefined;
 
@@ -38,6 +39,7 @@ export class AccountsGroupAccordionComponent implements OnInit, OnChanges, OnDes
   ngOnInit() {
     const sub = this.groupCheckbox.valueChanges.subscribe(value => {
       this.accounts.forEach(account => account.formControl.setValue(value, { emitEvent: false }));
+      this.changeGroupCheck.emit(value);
     });
     this.subscriptions.push(sub);
   }
@@ -69,7 +71,7 @@ export class AccountsGroupAccordionComponent implements OnInit, OnChanges, OnDes
 
   toggleOpen() {
     this.open = !this.open;
-    setTimeout(() => { // 描画された後に
+    setTimeout(() => { // 描画された後にheightを指定する
       if (!this.accordionElement) { return; }
       const element = this.accordionElement.nativeElement;
       if (this.open) {

@@ -25,7 +25,11 @@ export class OrganismsStories {
       .addDecorator(withKnobs)
       .add('default', () => ({
         template: `
-          <fei-accounts-group-accordion [groupName]="groupName" [accounts]="accounts"></fei-accounts-group-accordion>
+          <fei-accounts-group-accordion
+            [groupName]="groupName"
+            [accounts]="accounts"
+            (changeGroupCheck)="onChangeGroupCheck($event)"
+          ></fei-accounts-group-accordion>
         `,
         props: {
           groupName: 'Group AAAAAAAAAAA',
@@ -33,7 +37,8 @@ export class OrganismsStories {
             { name: 'tarou_tanaka', formControl: new FormControl(false) },
             { name: 'hanako_hanazawa', formControl: new FormControl(true) },
             { name: 'katuo_isono', formControl: new FormControl(true) }
-          ]
+          ],
+          onChangeGroupCheck: action('Change Group Check')
         }
       }))
       .add('width:150px', () => ({
