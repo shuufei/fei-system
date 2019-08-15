@@ -1,0 +1,20 @@
+<div #accordion class="accounts-group-accordion fei-round-2 fei-bg-color-white fei-shadow-1 fei-border-black200" [ngClass]="{'open': open}">
+  <div #accordionHead class="d-flex align-items-center justify-content-between fei-px-3 fei-py-2">
+    <fei-checkbox-wrapper [formControl]="groupCheckbox" ngDefaultControl>
+      <span class="fei-base fei-color-black400">{{groupName}}</span>
+    </fei-checkbox-wrapper>
+    <span class="close-icon fei-clickable fei-p-2" [ngClass]="{'open-icon': open}" (click)="toggleOpen()">
+      <fei-icon icon="arrow" [size]="13"></fei-icon>
+    </span>
+  </div>
+  <ng-container *ngIf="true">
+    <hr>
+    <div class="account-list fei-px-3 fei-py-2 fei-bg-color-blue50 d-flex flex-column">
+      <ng-container *ngFor="let account of accounts">
+        <fei-checkbox-wrapper class="fei-my-1" [formControl]="account.formControl" ngDefaultControl>
+          <fei-account-list-item [img]="account.img" [name]="account.name"></fei-account-list-item>
+        </fei-checkbox-wrapper>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

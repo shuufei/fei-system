@@ -10,8 +10,10 @@ export class ThumbnailComponent implements OnInit {
   @Input() src: string;
   @Input() size: number | undefined;
 
+  readonly DEFAULT_SRC = 'assets/images/no-image.png';
+
   constructor() {
-    this.src = 'assets/images/no-image.png';
+    this.src = this.DEFAULT_SRC;
     this.size = 50;
   }
 
@@ -19,7 +21,7 @@ export class ThumbnailComponent implements OnInit {
   }
 
   get backgroundImagePath() {
-    return `url(${this.src})`;
+    return `url(${this.src ? this.src : this.DEFAULT_SRC})`;
   }
 
 }

@@ -23,6 +23,9 @@ $spacing-rate-max: 20;
     margin-top: #{$i * $base-spacing}px;
     margin-bottom: #{$i * $base-spacing}px;
   }
+  .fei-m-#{$i} {
+    margin: #{$i * $base-spacing}px;
+  }
 }
 
 @for $i from $spacing-rate-min through $spacing-rate-max {
@@ -45,5 +48,8 @@ $spacing-rate-max: 20;
   .fei-py-#{$i} {
     padding-top: #{$i * $base-spacing}px;
     padding-bottom: #{$i * $base-spacing}px;
+  }
+  .fei-p-#{$i} {
+    padding: #{$i * $base-spacing}px;
   }
 }

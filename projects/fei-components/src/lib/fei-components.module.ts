@@ -19,6 +19,8 @@ import { PullButtonComponent } from './molecules/pull-button/pull-button.compone
 import { ThumbnailComponent } from './atoms/thumbnail/thumbnail.component';
 import { CalendarComponent } from './molecules/calendar/calendar.component';
 import { CalendarButtonComponent } from './molecules/calendar-button/calendar-button.component';
+import { AccountsGroupAccordionComponent } from './organisms/accounts-group-accordion/accounts-group-accordion.component';
+import { AccountListItemComponent } from './molecules/account-list-item/account-list-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { CalendarButtonComponent } from './molecules/calendar-button/calendar-bu
     PullButtonComponent,
     ThumbnailComponent,
     CalendarComponent,
-    CalendarButtonComponent
+    CalendarButtonComponent,
+    AccountsGroupAccordionComponent,
+    AccountListItemComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +65,9 @@ import { CalendarButtonComponent } from './molecules/calendar-button/calendar-bu
     PullButtonComponent,
     ThumbnailComponent,
     CalendarComponent,
-    CalendarButtonComponent
+    CalendarButtonComponent,
+    AccountsGroupAccordionComponent,
+    AccountListItemComponent
   ]
 })
 export class FeiComponentsModule { }

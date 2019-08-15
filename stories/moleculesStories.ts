@@ -91,13 +91,31 @@ export class MoleculesStories {
       .addDecorator(withKnobs)
       .add('default', () => ({
         template: `
-          <div style="margin-bottom: 12px;">
-            <fei-calendar-button></fei-calendar-button>
-          </div>
+          <fei-calendar-button></fei-calendar-button>
+        `,
+        props: {
+          date: new Date()
+        }
+      }))
+      .add('label enable', () => ({
+        template: `
           <fei-calendar-button [date]="date"></fei-calendar-button>
         `,
         props: {
           date: new Date()
+        }
+    }));
+
+    storiesOf(`${MoleculesStories.category}/Account List Item`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <fei-account-list-item [name]="name" [img]="img"></fei-account-list-item>
+        `,
+        props: {
+          name: text('name', 'tarou_tanaka'),
+          img: text('img', 'assets/images/default-account.png')
         }
     }));
   }

@@ -1,0 +1,19 @@
+.accounts-group-accordion {
+  overflow: hidden;
+  -webkit-transition: height 0.25s ease-out;
+  transition: height 0.25s ease-out;
+}
+
+.close-icon {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.open-icon {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.account-list {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
