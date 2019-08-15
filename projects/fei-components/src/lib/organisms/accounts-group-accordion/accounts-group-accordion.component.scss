@@ -4,16 +4,28 @@
   transition: height 0.25s ease-out;
 }
 
-.close-icon {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+.accordion-head {
+  position: relative;
 }
-.open-icon {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
+
+.accordion-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-55%);
+          transform: translateY(-55%);
 }
 
 .account-list {
   overflow-y: hidden;
   overflow-x: auto;
+}
+
+.group-name {
+  white-space: nowrap;
+}
+
+.group-checkbox {
+  width: 100%;
+  overflow: hidden;
 }
