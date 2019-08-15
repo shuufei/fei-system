@@ -118,5 +118,40 @@ export class MoleculesStories {
           img: text('img', 'assets/images/default-account.png')
         }
     }));
+
+    storiesOf(`${MoleculesStories.category}/Dialog`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <fei-dialog [open]="open">
+            <div header>
+              <p class="fei-subtitle fei-color-black500">Dialog Title</p>
+            </div>
+            <div contents style="width: 100%; height: 1000px;">
+              <p class="fei-base fei-color-black400">dialog contents</p>
+            </div>
+            <div buttonGroup>
+              <fei-button></fei-button>
+              <fei-button role="cancel" label="close"></fei-button>
+            </div>
+          </fei-dialog>
+        `,
+        props: {
+          open: boolean('open', true)
+        }
+      }))
+      .add('None Header & Footer', () => ({
+        template: `
+          <fei-dialog [open]="open" [hideHeader]="true" [hideFooter]="true">
+            <div contents style="width: 100%; height: 1000px;">
+              <p class="fei-base fei-color-black400">dialog contents</p>
+            </div>
+          </fei-dialog>
+        `,
+        props: {
+          open: boolean('open', true)
+        }
+    }));
   }
 }

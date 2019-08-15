@@ -1,0 +1,16 @@
+<div [@dialog] *ngIf="open" class="dialog fei-round-4 fei-bg-color-white fei-shadow-4">
+  <ng-container *ngIf="!hideHeader">
+    <div class="head" [ngClass]="{'fei-shadow-1': headerShadow}" #header>
+      <ng-content select="[header]"></ng-content>
+    </div>
+  </ng-container>
+  <div class="contents" #contents [style.padding-top]="headerHeight + contentsOffset + 'px'">
+    <ng-content select="[contents]"></ng-content>
+  </div>
+  <ng-container *ngIf="!hideFooter">
+    <footer class="footer">
+      <ng-content select="[buttonGroup]"></ng-content>
+    </footer>
+  </ng-container>
+</div>
+<div *ngIf="open" class="overlay"></div>

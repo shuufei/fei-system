@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FeiComponentsComponent } from './fei-components.component';
 import { ButtonComponent } from './atoms/button/button.component';
@@ -21,6 +23,7 @@ import { CalendarComponent } from './molecules/calendar/calendar.component';
 import { CalendarButtonComponent } from './molecules/calendar-button/calendar-button.component';
 import { AccountsGroupAccordionComponent } from './organisms/accounts-group-accordion/accounts-group-accordion.component';
 import { AccountListItemComponent } from './molecules/account-list-item/account-list-item.component';
+import { DialogComponent } from './molecules/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +44,15 @@ import { AccountListItemComponent } from './molecules/account-list-item/account-
     CalendarComponent,
     CalendarButtonComponent,
     AccountsGroupAccordionComponent,
-    AccountListItemComponent
+    AccountListItemComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    StyleExampleModule
+    StyleExampleModule,
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   exports: [
     StyleExampleModule,
@@ -67,7 +73,8 @@ import { AccountListItemComponent } from './molecules/account-list-item/account-
     CalendarComponent,
     CalendarButtonComponent,
     AccountsGroupAccordionComponent,
-    AccountListItemComponent
+    AccountListItemComponent,
+    DialogComponent
   ]
 })
 export class FeiComponentsModule { }
