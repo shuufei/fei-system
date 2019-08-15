@@ -28,7 +28,7 @@ export class OrganismsStories {
           <fei-accounts-group-accordion [groupName]="groupName" [accounts]="accounts"></fei-accounts-group-accordion>
         `,
         props: {
-          groupName: 'WE13',
+          groupName: 'Group AAA',
           accounts: [
             { name: 'tarou_tanaka', formControl: new FormControl(false) },
             { name: 'hanako_hanazawa', formControl: new FormControl(true) },
@@ -43,7 +43,7 @@ export class OrganismsStories {
           </div>
         `,
         props: {
-          groupName: 'WE13',
+          groupName: 'Group AAA',
           accounts: [
             { name: 'tarou_tanaka', formControl: new FormControl(false) },
             { name: 'hanako_hanazawa', formControl: new FormControl(true) },

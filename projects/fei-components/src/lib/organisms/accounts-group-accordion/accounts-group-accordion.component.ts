@@ -69,34 +69,13 @@ export class AccountsGroupAccordionComponent implements OnInit, OnChanges, OnDes
 
   toggleOpen() {
     this.open = !this.open;
-    // const open = this.open;
-    // if (this.open === false) { // 閉じる時はtransitionが終了してからフラグを切り替える
-    //   this.open = true;
-    // }
     setTimeout(() => { // 描画された後に
       if (!this.accordionElement) { return; }
       const element = this.accordionElement.nativeElement;
       if (this.open) {
         element.style.height = `${this.accordionHeight}px`;
-        // element.style.height = `${this.accordionHeight}px`;
-        // // tslint:disable-next-line:only-arrow-functions
-        // element.addEventListener('transitioned', function() {
-        //   // tslint:disable-next-line:no-arg
-        //   element.removeEventListener('transitionend', arguments.callee);
-        //   element.style.height = null;
-        // });
       } else {
         element.style.height = `${this.accordionHeadHeight}px`;
-        // const elementTransition = element.style.transition;
-        // element.style.transition = '';
-        // requestAnimationFrame(() => {
-        //   element.style.height = `${this.accordionHeight}px`;
-        //   element.style.transition = elementTransition;
-        //   requestAnimationFrame(() => {
-        //     element.style.height = `${this.accordionHeadHeight}px`;
-        //     // this.open = false;
-        //   });
-        // });
       }
     }, 0);
   }
