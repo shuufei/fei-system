@@ -1,4 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import {
+  Component, OnInit, ChangeDetectionStrategy, Input, ViewChild,
+  ElementRef, AfterViewInit, ChangeDetectorRef, OnChanges, SimpleChanges
+} from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -24,7 +27,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])
   ]
 })
-export class DialogComponent implements OnInit, AfterViewInit {
+export class DialogComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() open: boolean;
   @Input() hideHeader: boolean;
   @Input() hideFooter: boolean;
@@ -43,12 +46,19 @@ export class DialogComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.open && changes.open.currentValue === true) {
+      setTimeout(() => {
+        this.setHeaderShadow();
+      }, 0);
+    }
+  }
+
   ngAfterViewInit(): void {
     if (this.header) {
       this.headerHeight = this.header.nativeElement.clientHeight;
       this.ref.detectChanges();
     }
-    this.setHeaderShadow();
   }
 
   get contentsOffset() {
