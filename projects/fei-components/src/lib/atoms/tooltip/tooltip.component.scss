@@ -4,6 +4,7 @@
   background-color: map-get($map: $colors, $key: 'black500');
   position: relative;
   white-space: nowrap;
+  padding: 6px 10px;
   &:after {
     border-style: solid;
     content: '';
