@@ -1,5 +1,9 @@
 @import 'projects/fei-components/src/scss/variables.scss';
 
+:host {
+  display: inline-block;
+}
+
 .left-arrow {
   -webkit-transform: scale(-1, 1);
           transform: scale(-1, 1);

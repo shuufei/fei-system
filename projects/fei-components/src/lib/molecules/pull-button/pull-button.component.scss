@@ -1,5 +1,9 @@
 @import 'projects/fei-components/src/scss/variables.scss';
 
+:host {
+  display: inline-block;
+}
+
 .pull-button {
   border-radius: 50%;
   width: 30px;

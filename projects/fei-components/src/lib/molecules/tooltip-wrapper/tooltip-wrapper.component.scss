@@ -1,5 +1,9 @@
 @import 'projects/fei-components/src/scss/variables.scss';
 
+:host {
+  display: inline-block;
+}
+
 .tooltip-wrapper {
   position: relative;
   &:hover > fei-tooltip {

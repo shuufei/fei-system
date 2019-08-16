@@ -1,5 +1,9 @@
 @import 'projects/fei-components/src/scss/variables.scss';
 
+:host {
+  display: inline-block;
+}
+
 .calendar-button {
   -webkit-transition: 0.15s ease-out;
   transition: 0.15s ease-out;
