@@ -1,5 +1,9 @@
 @import 'projects/fei-components/src/scss/variables.scss';
 
+:host {
+  display: inline-block;
+}
+
 $loader-size-s: 20px;
 $loader-width-s: 2.5px;
 $loader-size-m: 40px;

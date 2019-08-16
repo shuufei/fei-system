@@ -1,5 +1,9 @@
 @import 'projects/fei-components/src/scss/variables.scss';
 
+:host {
+  display: inline-block;
+}
+
 .tooltip {
   background-color: map-get($map: $colors, $key: 'black500');
   position: relative;
