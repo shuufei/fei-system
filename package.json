@@ -1,6 +1,6 @@
 {
   "name": "fei-system",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "sb": "start-storybook",
     "build:fc": "ng build fei-components",
-    "prepublish": "npm run build:fc"
+    "prepublish": "npm run build:fc",
+    "build:watch": "ng build fei-components --watch >> build.log &"
   },
   "private": false,
   "license": "MIT",
