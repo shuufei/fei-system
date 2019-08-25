@@ -77,7 +77,8 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.generateCalendar();
   }
 
-  onClickedDate(date: number) {
+  onClickedDate(date: number | undefined) {
+    if (date == null) { return; }
     this.clickedDate.emit(new Date(this.baseDate.getFullYear(), this.baseDate.getMonth(), date));
   }
 
