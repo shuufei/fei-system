@@ -1,0 +1,44 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+$header-height: 45px;
+
+.action-panel-contents {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $header-height;
+  width: 100%;
+  background: map-get($map: $colors, $key: 'white');
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+}
+
+.contents {
+  padding: 12px 20px 100px;
+  max-height: 100%;
+  overflow: auto;
+  &.contents-padding-for-title-exist {
+    padding-top: calc(#{$header-height} + 12px);
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: map-get($map: $colors, $key: 'blue50');
+  border-top: solid 0.5px map-get($map: $colors, $key: 'black200');
+  padding: 12px 24px;
+}

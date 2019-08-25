@@ -7,6 +7,7 @@ import { FeiComponentsModule } from '../dist/fei-components';
 import { StorybookMetadata } from './util';
 import { TooltipPosition } from '../projects/fei-components/src/lib/atoms/tooltip/tooltip.component';
 import { PullButtonDirection } from '../projects/fei-components/src/lib/molecules/pull-button/pull-button.component';
+import { IconNames } from 'projects/fei-components/src/lib/atoms/icon/icon.component';
 
 const defaultMetadata = {
   declarations: [],
@@ -153,5 +154,75 @@ export class MoleculesStories {
           open: boolean('open', true)
         }
     }));
+
+    const iconNames: { [k in IconNames]: IconNames } = {
+      calendar: 'calendar',
+      calendarEdit: 'calendarEdit',
+      close: 'close',
+      logOut: 'logOut',
+      timeSpan: 'timeSpan',
+      users: 'users',
+      arrow: 'arrow',
+      arrowTop: 'arrowTop',
+      arrowBottom: 'arrowBottom',
+      arrowRight: 'arrowRight',
+      arrowLeft: 'arrowLeft'
+    };
+    storiesOf(`${MoleculesStories.category}/Action Panel Tab`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <div class="fei-pl-20">
+            <fei-action-panel-tab
+              [icon]="icon"
+              [label]="label"
+              [active]="active"
+              [first]="first"
+              [last]="last"
+            ></fei-action-panel-tab>
+          </div>
+        `,
+        props: {
+          icon: select('icon', iconNames, 'users'),
+          label: text('label', 'icon'),
+          active: boolean('active', false),
+          first: boolean('first', false),
+          last: boolean('last', false)
+        }
+      }));
+
+    storiesOf(`${MoleculesStories.category}/Action Panel Contents`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `
+          <div style="width: 300px; height: 600px;">
+            <fei-action-panel-contents title="Contents Title">
+              <div contents class="fei-bg-color-white" style="height: 1000px;">
+                <p class="fei-base fei-color-black400">contents</p>
+              </div>
+              <div buttonGroup class="d-flex justify-content-end">
+                <fei-button></fei-button>
+              </div>
+            </fei-action-panel-contents>
+          </div>
+        `,
+        props: {
+        }
+      }))
+      .add('None Header & Footer', () => ({
+        template: `
+          <div style="width: 300px; height: 600px;">
+            <fei-action-panel-contents [hideFooter]="true">
+              <div contents class="fei-bg-color-white" style="height: 1000px;">
+                <p class="fei-base fei-color-black400">contents</p>
+              </div>
+            </fei-action-panel-contents>
+          </div>
+        `,
+        props: {
+        }
+      }));
   }
 }

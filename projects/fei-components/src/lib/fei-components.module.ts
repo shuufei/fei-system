@@ -24,6 +24,11 @@ import { CalendarButtonComponent } from './molecules/calendar-button/calendar-bu
 import { AccountsGroupAccordionComponent } from './organisms/accounts-group-accordion/accounts-group-accordion.component';
 import { AccountListItemComponent } from './molecules/account-list-item/account-list-item.component';
 import { DialogComponent } from './molecules/dialog/dialog.component';
+import { ActionPanelContentsComponent } from './molecules/action-panel-contents/action-panel-contents.component';
+import { ActionPanelTabComponent } from './molecules/action-panel-tab/action-panel-tab.component';
+import { ActionPanelComponent } from './organisms/action-panel/action-panel.component';
+import { DialogLogoutComponent } from './organisms/dialog-logout/dialog-logout.component';
+import { NavigationBarComponent } from './organisms/navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,12 @@ import { DialogComponent } from './molecules/dialog/dialog.component';
     CalendarButtonComponent,
     AccountsGroupAccordionComponent,
     AccountListItemComponent,
-    DialogComponent
+    DialogComponent,
+    ActionPanelContentsComponent,
+    ActionPanelTabComponent,
+    ActionPanelComponent,
+    DialogLogoutComponent,
+    NavigationBarComponent
   ],
   imports: [
     CommonModule,
@@ -74,7 +84,12 @@ import { DialogComponent } from './molecules/dialog/dialog.component';
     CalendarButtonComponent,
     AccountsGroupAccordionComponent,
     AccountListItemComponent,
-    DialogComponent
+    DialogComponent,
+    ActionPanelContentsComponent,
+    ActionPanelTabComponent,
+    ActionPanelComponent,
+    DialogLogoutComponent,
+    NavigationBarComponent
   ]
 })
 export class FeiComponentsModule { }

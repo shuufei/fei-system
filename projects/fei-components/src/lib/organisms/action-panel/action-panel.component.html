@@ -1,0 +1,40 @@
+<div class="action-panel fei-shadow-l-1 fei-bg-color-white" [ngClass]="{'open': isOpen}">
+  <fei-pull-button [direction]="isOpen ? 'right' : 'left'" class="pull-button" (click)="toggle()"></fei-pull-button>
+  <div class="tabs d-flex flex-column align-items-end">
+    <fei-action-panel-tab
+      icon="users"
+      label="users"
+      [active]="activeTab === actionTabs.users"
+      [first]="true"
+      (click)="onClickTab(actionTabs.users)"
+    ></fei-action-panel-tab>
+    <fei-action-panel-tab
+      icon="calendarEdit"
+      [active]="activeTab === actionTabs.bulkUpdate"
+      label="calenderEdit"
+      (click)="onClickTab(actionTabs.bulkUpdate)"
+    ></fei-action-panel-tab>
+    <fei-action-panel-tab
+      icon="timeSpan"
+      label="timeSpan"
+      [active]="activeTab === actionTabs.workingDetail"
+      [last]="true"
+      (click)="onClickTab(actionTabs.workingDetail)"
+    ></fei-action-panel-tab>
+  </div>
+
+  <ng-container *ngIf="isOpen">
+    <div [@panel] *ngIf="activeTab === actionTabs.users" class="contents">
+      <ng-content select="[users]"></ng-content>
+    </div>
+    
+    <div [@panel] *ngIf="activeTab === actionTabs.bulkUpdate" class="contents">
+      <ng-content select="[bulkUpdate]"></ng-content>
+    </div>
+  
+    <div [@panel] *ngIf="activeTab === actionTabs.workingDetail" class="contents">
+      <ng-content select="[workingDetail]"></ng-content>
+    </div>
+  </ng-container>
+
+</div>

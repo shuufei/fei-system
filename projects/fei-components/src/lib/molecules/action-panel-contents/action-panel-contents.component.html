@@ -1,0 +1,15 @@
+<div class="action-panel-contents fei-bg-color-white">
+  <ng-container *ngIf="title">
+    <div class="header d-flex align-items-center justify-content-center" [ngClass]="{'fei-shadow-1': headerShadow}">
+      <p class="fei-base fei-color-black400">{{title}}</p>
+    </div>
+  </ng-container>
+  <div class="contents" #contents [ngClass]="{'contents-padding-for-title-exist': title}">
+    <ng-content select="[contents]"></ng-content>
+  </div>
+  <ng-container *ngIf="!hideFooter">
+    <footer class="footer">
+      <ng-content select="[buttonGroup]"></ng-content>
+    </footer>
+  </ng-container>
+</div>

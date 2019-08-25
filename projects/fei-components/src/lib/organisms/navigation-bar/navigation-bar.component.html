@@ -1,0 +1,10 @@
+<div class="navigation-bar fei-bg-color-blue50 d-inline-flex flex-column justify-content-between align-items-center fei-px-3 fei-pt-4 fei-pb-8">
+  <fei-tooltip-wrapper label="アカウント情報" position="right">
+    <fei-thumbnail [src]="account?.img" [size]="40" class="fei-clickable"></fei-thumbnail>
+  </fei-tooltip-wrapper>
+  <fei-tooltip-wrapper label="ログアウト" position="right">
+    <fei-icon icon="logOut" [size]="24" class="fei-clickable" (click)="openLogoutDialog()"></fei-icon>
+  </fei-tooltip-wrapper>
+</div>
+
+<fei-dialog-logout [open]="isOpenLogoutDialog" (logout)="onLogout()" (cancel)="closeLogoutDialog()"></fei-dialog-logout>

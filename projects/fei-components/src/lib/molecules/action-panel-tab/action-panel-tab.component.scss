@@ -1,0 +1,39 @@
+@import 'projects/fei-components/src/scss/variables.scss';
+
+:host {
+  display: inline-block;
+}
+
+.tab {
+  height: 45px;
+  width: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 5;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+  &.active {
+    width: 53px;
+    background: map-get($map: $colors, $key: 'white');
+    -webkit-box-shadow: map-get($map: $shadow, $key: 'l-1');
+            box-shadow: map-get($map: $shadow, $key: 'l-1');
+    border-top-left-radius: map-get($map: $round, $key: '3');
+    border-bottom-left-radius: map-get($map: $round, $key: '3');
+    z-index: 10;
+  }
+}
+
+.first-tab {
+  border-top-left-radius: map-get($map: $round, $key: '3');
+}
+
+.last-tab {
+  border-bottom-left-radius: map-get($map: $round, $key: '3');
+}

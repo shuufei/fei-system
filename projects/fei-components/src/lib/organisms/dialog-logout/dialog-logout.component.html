@@ -1,0 +1,9 @@
+<fei-dialog [open]="open" [hideHeader]="true">
+  <div contents>
+    <p class="fei-base fei-color-black400">ログアウトしますか？</p>
+  </div>
+  <div buttonGroup>
+    <fei-button role="danger" label="ログアウト" (click)="logout.emit()"></fei-button>
+    <fei-button role="cancel" label="キャンセル" (click)="cancel.emit()"></fei-button>
+  </div>
+</fei-dialog>
