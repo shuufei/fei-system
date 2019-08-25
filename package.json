@@ -11,7 +11,8 @@
     "sb": "start-storybook",
     "build:fc": "ng build fei-components",
     "prepublish": "npm run build:fc",
-    "build:watch": "ng build fei-components --watch >> build.log &"
+    "build:watch": "ng build fei-components --watch >> build.log &",
+    "sb:build": "build-storybook -c .storybook -o public"
   },
   "private": false,
   "license": "MIT",
