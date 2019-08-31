@@ -33,4 +33,12 @@
   &::-ms-expand {
     display: none;
   }
+  &.shadow {
+    -webkit-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+    &:hover {
+      -webkit-box-shadow: map-get($map: $shadow, $key: '3');
+              box-shadow: map-get($map: $shadow, $key: '3');
+    }
+  }
 }

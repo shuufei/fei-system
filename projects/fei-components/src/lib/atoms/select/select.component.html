@@ -1,8 +1,8 @@
 <div class="select-wrapper d-inline-block" [style.width]="full ? '100%' : ''">
   <select
-    class='select fei-base fei-border-black200 fei-color-black500 fei-bg-color-white fei-py-2 fei-px-2 fei-pr-8'
+    class='select fei-base fei-border-black200 fei-color-black500 fei-round-2 fei-bg-color-white fei-py-2 fei-px-2 fei-pr-8'
     [formControl]='formControl'
-    [ngClass]="{'fei-shadow-1': shadow}"
+    [ngClass]="shadow ? ['fei-shadow-1', 'shadow'] : ''"
   >
     <ng-container *ngFor="let option of selectOptions">
       <option [value]='option.value'>{{option.label}}</option>
