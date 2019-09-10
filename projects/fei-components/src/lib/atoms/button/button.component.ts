@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'fei-button',
@@ -12,6 +12,7 @@ export class ButtonComponent implements OnInit {
   @Input() disabled: boolean;
   @Input() full: boolean;
   @Input() role: ButtonRole;
+  @HostBinding('style.display') get hostDisplay() { return this.full ? 'block' : 'inline-block'; }
 
   constructor() {
     this.label = 'button';
