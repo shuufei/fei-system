@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -12,6 +12,7 @@ export class SelectComponent implements OnInit {
   @Input() selectOptions: SelectOption[];
   @Input() full: boolean;
   @Input() shadow: boolean;
+  @HostBinding('style.display') get hostDisplay() { return this.full ? 'block' : 'inline-block'; }
 
   constructor() {
     this.formControl = new FormControl('');
