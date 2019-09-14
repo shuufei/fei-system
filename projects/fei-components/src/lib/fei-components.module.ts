@@ -29,6 +29,7 @@ import { ActionPanelTabComponent } from './molecules/action-panel-tab/action-pan
 import { ActionPanelComponent } from './organisms/action-panel/action-panel.component';
 import { DialogLogoutComponent } from './organisms/dialog-logout/dialog-logout.component';
 import { NavigationBarComponent } from './organisms/navigation-bar/navigation-bar.component';
+import { InputTimeComponent } from './atoms/input-time/input-time.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { NavigationBarComponent } from './organisms/navigation-bar/navigation-ba
     ActionPanelTabComponent,
     ActionPanelComponent,
     DialogLogoutComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    InputTimeComponent
   ],
   imports: [
     CommonModule,
@@ -89,7 +91,8 @@ import { NavigationBarComponent } from './organisms/navigation-bar/navigation-ba
     ActionPanelTabComponent,
     ActionPanelComponent,
     DialogLogoutComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    InputTimeComponent
   ]
 })
 export class FeiComponentsModule { }

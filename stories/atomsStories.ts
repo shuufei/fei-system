@@ -210,5 +210,15 @@ export class AtomsStories {
           size: number('size', 50)
         }
     }));
+
+    storiesOf(`${AtomsStories.category}/Input Time`, module)
+      .addDecorator(moduleMetadata(metadata))
+      .addDecorator(withKnobs)
+      .add('default', () => ({
+        template: `<fei-input-time [full]="full"></fei-input-time>`,
+        props: {
+          full: boolean('full', false)
+        }
+      }));
   }
 }
