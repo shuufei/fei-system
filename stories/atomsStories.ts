@@ -158,7 +158,16 @@ export class AtomsStories {
           placeholder: text('placeholder', '入力してください'),
           full: boolean('full', false)
         }
-    }));
+    }))
+    .add('option styles', () => ({
+      template: `
+        <fei-textarea [placeholder]='placeholder' [full]='full' [options]="['resize-vertical']"></fei-textarea>
+      `,
+      props: {
+        placeholder: text('placeholder', '入力してください'),
+        full: boolean('full', false),
+      }
+  }));
 
     const fcOfCheckbox = new FormControl(true);
     storiesOf(`${AtomsStories.category}/Checkbox`, module)

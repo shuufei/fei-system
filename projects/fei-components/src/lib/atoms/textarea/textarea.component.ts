@@ -12,6 +12,7 @@ export class TextareaComponent implements OnInit {
   @Input() placeholder: string;
   @Input() full: boolean;
   @Input() rows: number;
+  @Input() options: ('resize-horizontal' | 'resize-vertical')[];
   @HostBinding('style.display') get hostDisplay() { return this.full ? 'block' : 'inline-block'; }
 
   constructor() {
@@ -19,6 +20,7 @@ export class TextareaComponent implements OnInit {
     this.placeholder = '入力してください';
     this.full = false;
     this.rows = 5;
+    this.options = [];
   }
 
   ngOnInit() {
