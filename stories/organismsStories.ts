@@ -35,9 +35,9 @@ export class OrganismsStories {
         props: {
           groupName: 'Group AAAAAAAAAAA',
           accounts: [
-            { name: 'tarou_tanaka', formControl: new FormControl(false) },
-            { name: 'hanako_hanazawa', formControl: new FormControl(true) },
-            { name: 'katuo_isono', formControl: new FormControl(true) }
+            { id: 1, name: 'tarou_tanaka', formControl: new FormControl(false) },
+            { id: 2, name: 'hanako_hanazawa', formControl: new FormControl(true) },
+            { id: 3, name: 'katuo_isono', formControl: new FormControl(true) }
           ],
           onAdded: action('Added'),
           onRemoved: action('Removed'),

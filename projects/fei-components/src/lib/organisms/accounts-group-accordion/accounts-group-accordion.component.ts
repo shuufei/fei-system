@@ -119,6 +119,7 @@ export class AccountsGroupAccordionComponent implements OnInit, OnChanges, OnDes
 }
 
 export interface AccountsGroupAccordionAccount {
+  id: number;
   name: string;
   img: string | undefined;
   formControl: FormControl;
