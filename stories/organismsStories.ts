@@ -28,7 +28,8 @@ export class OrganismsStories {
           <fei-accounts-group-accordion
             [groupName]="groupName"
             [accounts]="accounts"
-            (changeGroupCheck)="onChangeGroupCheck($event)"
+            (added)="onAdded($event)"
+            (removed)="onRemoved($event)"
           ></fei-accounts-group-accordion>
         `,
         props: {
@@ -38,7 +39,8 @@ export class OrganismsStories {
             { name: 'hanako_hanazawa', formControl: new FormControl(true) },
             { name: 'katuo_isono', formControl: new FormControl(true) }
           ],
-          onChangeGroupCheck: action('Change Group Check')
+          onAdded: action('Added'),
+          onRemoved: action('Removed'),
         }
       }))
       .add('width:150px', () => ({

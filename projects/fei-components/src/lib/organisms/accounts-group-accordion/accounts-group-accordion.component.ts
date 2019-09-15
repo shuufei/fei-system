@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'fei-accounts-group-accordion',
@@ -14,7 +15,8 @@ import { Subscription } from 'rxjs';
 export class AccountsGroupAccordionComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
   @Input() groupName: string;
   @Input() accounts: AccountsGroupAccordionAccount[];
-  @Output() changeGroupCheck: EventEmitter<boolean> = new EventEmitter();
+  @Output() added: EventEmitter<AccountsGroupAccordionAccount> = new EventEmitter();
+  @Output() removed: EventEmitter<AccountsGroupAccordionAccount> = new EventEmitter();
   @ViewChild('accordion', { static: false }) accordionElement: ElementRef | undefined;
   @ViewChild('accordionHead', { static: false }) accordionHeadElement: ElementRef | undefined;
 
@@ -37,9 +39,19 @@ export class AccountsGroupAccordionComponent implements OnInit, OnChanges, OnDes
   }
 
   ngOnInit() {
-    const sub = this.groupCheckbox.valueChanges.subscribe(value => {
-      this.accounts.forEach(account => account.formControl.setValue(value, { emitEvent: false }));
-      this.changeGroupCheck.emit(value);
+    const sub = this.groupCheckbox.valueChanges.pipe(
+      filter(v => typeof v === 'boolean'),
+    ).subscribe(value => {
+      this.accounts.forEach(account => {
+        if (value !== account.formControl.value) {
+          account.formControl.setValue(value, { emitEvent: false });
+          if (value) {
+            this.added.emit(account);
+          } else {
+            this.removed.emit(account);
+          }
+        }
+      });
     });
     this.subscriptions.push(sub);
   }
@@ -48,7 +60,14 @@ export class AccountsGroupAccordionComponent implements OnInit, OnChanges, OnDes
     if (changes.accounts && changes.accounts.currentValue) {
       this.resetAccountsSubscriptions();
       for (const account  of changes.accounts.currentValue as AccountsGroupAccordionAccount[]) {
-        const sub = account.formControl.valueChanges.subscribe(() => {
+        const sub = account.formControl.valueChanges.pipe(
+          filter(v => typeof v === 'boolean'),
+        ).subscribe(value => {
+          if (value) {
+            this.added.emit(account);
+          } else {
+            this.removed.emit(account);
+          }
           this.setGroupChecked();
         });
         this.accountsSubscriptions.push(sub);
