@@ -1,0 +1,12 @@
+@import '~projects/fei-components/src/scss/variables.scss';
+
+:host {
+  display: block;
+}
+
+.item {
+  transition: 0.15s ease-out;
+  &:hover {
+    box-shadow: map-get($map: $shadow, $key: '2');
+  }
+}

@@ -1,0 +1,8 @@
+<ng-container *ngFor="let todo of todos">
+  <fei-todo-item
+    class="fei-mt-2"
+    [title]="todo.title"
+    [isDone]="todo.isDone"
+    (changeDone)="onChangeDone(todo.uuid, $event)"
+  ></fei-todo-item>
+</ng-container>
