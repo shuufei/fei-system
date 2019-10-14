@@ -1,0 +1,8 @@
+@import '~projects/fei-components/src/scss/variables.scss';
+
+.navigate-item {
+  color: map-get($map: $colors, $key: 'black300');
+  &.active {
+    color: map-get($map: $colors, $key: 'black500');
+  }
+}
