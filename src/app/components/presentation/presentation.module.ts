@@ -4,13 +4,15 @@ import { TodoItemComponent } from './molecules/todo-item/todo-item.component';
 import { FeiComponentsModule } from 'projects/fei-components/src/public-api';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodoItemListComponent } from './organisms/todo-item-list/todo-item-list.component';
+import { TodoBoardComponent } from './organisms/todo-board/todo-board.component';
 
 
 
 @NgModule({
   declarations: [
     TodoItemComponent,
-    TodoItemListComponent
+    TodoItemListComponent,
+    TodoBoardComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { TodoItemListComponent } from './organisms/todo-item-list/todo-item-list
   ],
   exports: [
     TodoItemComponent,
-    TodoItemListComponent
+    TodoItemListComponent,
+    TodoBoardComponent,
   ]
 })
 export class PresentationModule { }

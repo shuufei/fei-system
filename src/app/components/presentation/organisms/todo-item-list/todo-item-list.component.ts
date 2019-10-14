@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import * as _ from 'lodash';
 import { Todo } from 'src/app/interface/todo';
 
 @Component({
@@ -8,6 +9,7 @@ import { Todo } from 'src/app/interface/todo';
 })
 export class TodoItemListComponent implements OnInit {
   @Input() todos: Todo[];
+  @Output() changeDone: EventEmitter<Todo> = new EventEmitter();
 
   constructor() {
     this.todos = [];
@@ -17,7 +19,11 @@ export class TodoItemListComponent implements OnInit {
   }
 
   onChangeDone(uuid: string, isDone: boolean) {
-    console.log('--- change done in todo item list: ', uuid, isDone);
+    const todo = _.cloneDeep(this.todos).find(v => v.uuid === uuid);
+    if (todo != null) {
+      todo.isDone = isDone;
+      this.changeDone.emit(todo);
+    }
   }
 
 }

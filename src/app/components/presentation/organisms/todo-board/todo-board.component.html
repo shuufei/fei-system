@@ -1,0 +1,10 @@
+<div class="todo-group">
+  <div class="d-flex">
+    <fei-input-text></fei-input-text>
+    <fei-button class="fei-ml-2" label="追加"></fei-button>
+  </div>
+  <fei-todo-item-list
+    [todos]="todos"
+    (changeDone)="changeDone.emit($event)"
+  ></fei-todo-item-list>
+</div>
