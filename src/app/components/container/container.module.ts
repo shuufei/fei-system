@@ -7,6 +7,7 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { SensorDataTableComponent } from './data-table/sensor-data-table/sensor-data-table.component';
 import { DataTableService, DataTableDefaultService } from './data-table/data-table.service';
 import { DeviceDataTableComponent } from './data-table/device-data-table/device-data-table.component';
+import { TodoBoardService, TodoBoardDefaultService } from './todo-board-container/todo-board.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DeviceDataTableComponent } from './data-table/device-data-table/device-
   ],
   providers: [
     { provide: DataTableService, useClass: DataTableDefaultService },
+    { provide: TodoBoardService, useClass: TodoBoardDefaultService },
   ]
 })
 export class ContainerModule { }
