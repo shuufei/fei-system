@@ -88,4 +88,8 @@ export class ApiService {
       },
     ];
   }
+
+  updateItem(id: number) {
+    console.log('--- update id: ', id);
+  }
 }
