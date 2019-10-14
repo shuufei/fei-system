@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoBoardContainerComponent } from './todo-board-container/todo-board-container.component';
 import { PresentationModule } from '../presentation/presentation.module';
-import { DataTableContainerComponent } from './data-table-container/data-table-container.component';
 import { FeiComponentsModule } from 'projects/fei-components/src/public-api';
-import { SensorDataTableComponent } from './sensor-data-table/sensor-data-table.component';
-import { DeviceDataTableComponent } from './device-data-table/device-data-table.component';
-
-
+import { DataTableComponent } from './data-table/data-table.component';
+import { SensorDataTableComponent } from './data-table/sensor-data-table/sensor-data-table.component';
+import { DataTableService, DataTableDefaultService } from './data-table/data-table.service';
+import { DeviceDataTableComponent } from './data-table/device-data-table/device-data-table.component';
 
 @NgModule({
   declarations: [
     TodoBoardContainerComponent,
-    DataTableContainerComponent,
+    DataTableComponent,
     SensorDataTableComponent,
     DeviceDataTableComponent,
   ],
@@ -23,9 +22,12 @@ import { DeviceDataTableComponent } from './device-data-table/device-data-table.
   ],
   exports: [
     TodoBoardContainerComponent,
-    DataTableContainerComponent,
+    DataTableComponent,
     SensorDataTableComponent,
     DeviceDataTableComponent,
+  ],
+  providers: [
+    { provide: DataTableService, useClass: DataTableDefaultService },
   ]
 })
 export class ContainerModule { }

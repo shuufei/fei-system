@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DataTableService } from '../data-table-behavior.component';
-import { DeviceData } from 'src/app/components/container/device-data-table/device-data-table.component';
+import { DataTableService } from '../data-table.service';
+import { DeviceData } from 'src/app/interface/device-data';
 import { ApiService } from 'src/app/core/api.service';
 
 const DEVICE_DATA_TABLE_COLUMNS: (keyof DeviceData)[] = ['name', 'ip', 'model', 'comment'];
@@ -34,5 +34,4 @@ export class DeviceDataTableService implements DataTableService<DeviceData> {
   update(data: DeviceData) {
     console.log('--- update data in device-data-table.service: ', data);
   }
-
 }

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import uuidv4 from 'uuid/v4';
 
 import { Todo } from '../interface/todo';
-import { SensorData } from '../components/container/data-table-container/data-table-container.component';
-import { DeviceData } from '../components/container/device-data-table/device-data-table.component';
+import { SensorData } from '../interface/sensor-data';
+import { DeviceData } from '../interface/device-data';
 
 @Injectable({
   providedIn: 'root'

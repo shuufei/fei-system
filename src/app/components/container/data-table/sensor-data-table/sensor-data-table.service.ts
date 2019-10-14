@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { DataTableService } from '../data-table-behavior.component';
-import { SensorData } from 'src/app/components/container/data-table-container/data-table-container.component';
+
+import { SensorData } from 'src/app/interface/sensor-data';
+import { DataTableService } from '../data-table.service';
 import { ApiService } from 'src/app/core/api.service';
 
 const SENSOR_DATA_TABLE_COLUMNS: (keyof SensorData)[] = ['name', 'sensorAA', 'sensorBB', 'sensorCC', 'sensorDD'];
