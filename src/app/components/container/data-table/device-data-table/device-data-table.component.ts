@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DataTableService } from '../data-table.service';
 import { DeviceDataTableService } from './device-data-table.service';
 
@@ -6,7 +6,8 @@ import { DeviceDataTableService } from './device-data-table.service';
   selector: 'fei-device-data-table',
   templateUrl: './device-data-table.component.html',
   styleUrls: ['./device-data-table.component.scss'],
-  providers: [{ provide: DataTableService, useClass: DeviceDataTableService }]
+  providers: [{ provide: DataTableService, useClass: DeviceDataTableService }],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceDataTableComponent implements OnInit {
 

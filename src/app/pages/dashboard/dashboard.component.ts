@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { UpdateItemButtonComponent } from 'src/app/components/container/action-button/update-item-button/update-item-button.component';
 import { UpdateItemButtonService } from '../../components/container/action-button/update-item-button/update-item-button.service';
@@ -8,6 +8,7 @@ import { ActionButtonService } from '../../components/container/action-button/ac
   selector: 'fei-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChildren(UpdateItemButtonComponent) updateItemButtons!: QueryList<UpdateItemButtonComponent>;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ActionButtonService } from '../action-button.service';
 import { UpdateItemButtonService } from './update-item-button.service';
 import { ActionButtonComponent } from '../action-button.component';
@@ -7,7 +7,8 @@ import { ActionButtonComponent } from '../action-button.component';
   selector: 'fei-update-item-button',
   templateUrl: './update-item-button.component.html',
   styleUrls: ['./update-item-button.component.scss'],
-  providers: [{ provide: ActionButtonService, useClass: UpdateItemButtonService }]
+  providers: [{ provide: ActionButtonService, useClass: UpdateItemButtonService }],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpdateItemButtonComponent implements OnInit {
   @ViewChild(ActionButtonComponent, { static: true }) actionButton!: ActionButtonComponent;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { DataTableService, DataTableDefaultService } from './data-table.service';
 import { SensorData } from 'src/app/interface/sensor-data';
@@ -8,6 +8,7 @@ import { DeviceData } from 'src/app/interface/device-data';
   selector: 'fei-data-table',
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DataTableComponent implements OnInit {
 

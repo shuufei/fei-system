@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import * as _ from 'lodash';
 import { Todo } from 'src/app/interface/todo';
 
 @Component({
   selector: 'fei-todo-item-list',
   templateUrl: './todo-item-list.component.html',
-  styleUrls: ['./todo-item-list.component.scss']
+  styleUrls: ['./todo-item-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoItemListComponent implements OnInit {
   @Input() todos: Todo[];
