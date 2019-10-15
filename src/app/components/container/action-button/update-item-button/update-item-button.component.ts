@@ -11,15 +11,14 @@ import { ActionButtonComponent } from '../action-button.component';
 })
 export class UpdateItemButtonComponent implements OnInit {
   @ViewChild(ActionButtonComponent, { static: true }) actionButton!: ActionButtonComponent;
-  @Input('targetId')
-  set targetId(value: number | null) {
-    const service = this.actionButton.service as UpdateItemButtonService;
-    service.targetId = value;
-  }
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get service() {
+    return this.actionButton.service as UpdateItemButtonService;
   }
 
 }
