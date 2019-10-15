@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export abstract class ActionButtonService {
+  abstract targetId: number | null;
   abstract label: string;
   abstract action: () => void;
 }
@@ -9,8 +10,9 @@ export abstract class ActionButtonService {
   providedIn: 'root'
 })
 export class ActionButtonDefaultService implements ActionButtonService {
+  targetId: number | null = null;
 
-  constructor() { }
+  constructor() {}
 
   get label() {
     return 'action';

@@ -37,7 +37,7 @@ import { UpdateItemButtonComponent } from './action-button/update-item-button/up
   providers: [
     { provide: DataTableService, useClass: DataTableDefaultService },
     { provide: TodoBoardService, useClass: TodoBoardDefaultService },
-    // { provide: ActionButtonService, useClass: ActionButtonDefaultService },
+    { provide: ActionButtonService, useClass: ActionButtonDefaultService },
   ]
 })
 export class ContainerModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActionButtonService } from './action-button.service';
 
 @Component({
@@ -15,6 +16,10 @@ export class ActionButtonComponent implements OnInit {
 
   get label() {
     return this.actionButtonService.label;
+  }
+
+  get service() {
+    return this.actionButtonService;
   }
 
   onClicked() {
