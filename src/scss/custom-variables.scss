@@ -1,0 +1,42 @@
+$colors: (
+  'blue500': #2D6CCA,
+  'blue400': #84AAE1,
+  'blue50': #E8EDF4,
+  'red500': #D33030,
+  'red50': #FFF0F0,
+  'yellow500': #F9E002,
+  'green500': #49D460,
+  'black500': #D33030,
+  'black400': #505050,
+  'black300': #A0A0A0,
+  'black250': #CCCCCC,
+  'black200': #DDDDDD,
+  'black50': #F2F2F2,
+  'white': #FFFFFF,
+  'primary-blue': #2D6CCA,
+  'primary-yellow': #F9E002,
+  'success': #49D460,
+  'danger': #D33030
+);
+
+$typography: (
+  'title': 20px,
+  'subtitle': 18px,
+  'base': 14px,
+  'caption': 12px
+);
+
+$shadow: (
+  '1': 0 4px 5px rgba(0,0,0,0.12),
+  '2': 0 4px 8px rgba(0,0,0,0.25),
+  '3': 0 8px 16px rgba(0,0,0,0.20),
+  '4': 0 8px 16px rgba(0,0,0,0.35),
+  'l-1': -4px 0 5px rgba(0,0,0,0.12),
+);
+
+$round: (
+  '1': 2px,
+  '2': 3px,
+  '3': 5px,
+  '4': 10px
+);

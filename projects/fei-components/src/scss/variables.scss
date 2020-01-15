@@ -17,7 +17,7 @@ $colors: (
   'primary-yellow': #F9E002,
   'success': #49D460,
   'danger': #D33030
-);
+) !default;
 
 $typography: (
   'title': 20px,
